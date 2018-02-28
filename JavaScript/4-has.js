@@ -32,3 +32,5 @@ if ('age' in person) {
     }
   }
 }
+
+console.dir(person);
