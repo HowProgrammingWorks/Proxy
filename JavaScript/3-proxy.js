@@ -9,7 +9,8 @@ const person = new Proxy(data, {
   },
   set(obj, key, val) {
     console.log('set', key, val);
-    return obj[key];
+    obj[key] = val;
+    return true;
   }
 });
 
@@ -19,3 +20,5 @@ console.dir({ 'person.year': person.year });
 for (const key in person) {
   console.dir({ key: person[key] });
 }
+
+person.name = 'Marcus';
