@@ -1,0 +1,10 @@
+{
+  "port": 8080,
+  "host": "domain.com",
+  "timeouts": {
+    "connect": 5000,
+    "reconnect": 1000,
+    "keepAlive": 2000,
+    "ping": 30000
+  }
+}
