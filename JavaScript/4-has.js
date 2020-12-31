@@ -12,7 +12,7 @@ const person = new Proxy(data, {
     if (key === 'age') {
       return (
         new Date().getFullYear() -
-        new Date(obj.born + '').getFullYear()
+        new Date(obj.born.toString()).getFullYear()
       );
     }
     return obj[key];
