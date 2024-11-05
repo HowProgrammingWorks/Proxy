@@ -10,7 +10,7 @@ class Config {
     const steps = key.split('.');
     for (const step of steps) {
       const next = data[step];
-      if (!next) return;
+      if (!next) return null;
       data = next;
     }
     return data;

@@ -6,7 +6,7 @@ const obj = {
   },
   set x(v) {
     console.log('set', v);
-  }
+  },
 };
 
 obj.x = 5;

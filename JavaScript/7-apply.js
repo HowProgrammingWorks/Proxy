@@ -6,7 +6,7 @@ const amax = new Proxy(max, {
   apply(target, context, args) {
     console.log('apply', target.name, args);
     return args.reduce(target);
-  }
+  },
 });
 
 console.log(max(7, 3, 12, 5, 0, 4, 8, 5));

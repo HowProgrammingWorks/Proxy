@@ -11,7 +11,7 @@ const person = new Proxy(data, {
     console.log('set', key, val);
     obj[key] = val;
     return true;
-  }
+  },
 });
 
 console.dir({ 'person.born': person.born });
