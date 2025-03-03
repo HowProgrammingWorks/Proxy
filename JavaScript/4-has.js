@@ -10,19 +10,19 @@ const person = new Proxy(data, {
   get(obj, key) {
     console.log('get', key);
     if (key === 'age') {
-      return (
-        new Date().getFullYear() - new Date(obj.born.toString()).getFullYear()
-      );
+      const current = new Date().getFullYear();
+      const year = new Date(obj.born.toString()).getFullYear();
+      return current - year;
     }
     return obj[key];
   },
 });
 
-console.log("Try 'age' in person");
+console.log('Try "age" in person');
 if ('age' in person) {
   console.log('Try person.age');
   if (person.age) {
-    console.log("Try person['age']");
+    console.log('Try person["age"]');
     if (person['age']) {
       console.log({
         born: person.born,

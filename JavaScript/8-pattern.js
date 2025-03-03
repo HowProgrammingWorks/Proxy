@@ -1,23 +1,33 @@
 'use strict';
 
-class Class1 {
-  method(par1, par2) {
-    return { par1, par2 };
+class Person {
+  constructor(name, surname) {
+    this.name = name;
+    this.surname = surname;
+  }
+
+  getFullName() {
+    const { name = '', surname = '' } = this;
+    return name + ' ' + surname;
   }
 }
 
-class ProxyClass {
-  constructor(instance) {
-    this.instance = instance;
+class PersonProxy {
+  constructor(person) {
+    this.person = person;
   }
 
-  method(par1, par2) {
-    return this.instance.method(par1, par2);
+  getFullName() {
+    let fullName = this.person.getFullName();
+    if (fullName.startsWith(' ') || fullName.endsWith(' ')) {
+      fullName = fullName.trim();
+    }
+    return fullName;
   }
 }
 
 // Usage
 
-const proxy = new ProxyClass(new Class1());
-const res = proxy.method('value1', 'value2');
-console.dir(res);
+const proxy = new PersonProxy(new Person('Marcus', 'Antonin'));
+const fullName = proxy.getFullName();
+console.dir({ fullName });
